@@ -1,4 +1,4 @@
-define('kcars_main', ['breve-js', 'state', 'canvas_state', 'lodash'], function (breve, state, CanvasState, _) {
+define('kcars_main', ['breve-js', 'state', 'canvas_state', 'tiler', 'tracks', 'lodash'], function (breve, state, CanvasState, Tiler, tracks, _) {
 
     function KCars () {};
 
@@ -7,6 +7,9 @@ define('kcars_main', ['breve-js', 'state', 'canvas_state', 'lodash'], function (
         this.canvasState = new CanvasState();
         this.canvasState.init(document.getElementById('canvas'));
         // setup the stuff!
+
+        this.track = new Tiler({ track : tracks['default']});
+
         state.subscribe('onLevelChanged', this.onLevelChanged, this);
         state.init();
 

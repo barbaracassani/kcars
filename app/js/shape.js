@@ -1,14 +1,20 @@
-define('Shape', [] , function() {
+define('shape', [] , function() {
 
     'use strict';
 
-    function Shape(x, y, w, h, fill) {
-        this.x = x || 0;
-        this.y = y || 0;
-        this.w = w || 1;
-        this.h = h || 1;
-        this.fill = fill || '#AAAAAA';
+    function Shape(config) {
+
+        this.config = config;
+        this.x = config.x || 0;
+        this.y = config.y || 0;
+        this.w = config.w || 1;
+        this.h = config.h || 1;
+        this.fill = config.fill || '#AAAAAA';
+
+        this.init();
     }
+
+    Shape.prototype.init = function () {};
 
     Shape.prototype.setPosition = function (x, y) {
         this.x = x;
